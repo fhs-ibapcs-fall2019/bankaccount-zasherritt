@@ -5,19 +5,17 @@ public class BankAccount
     private int accountNumber;
     private String password;
     private boolean loggedIn;
-    private double deposit;
-    private double withDrawal;
+   
     
     // constructor (always has the name of a class) 
-    public BankAccount(double balance, String accountHolder, int accountNumber,String password, double deposit, double withDrawal)
+    public BankAccount(double balance, String accountHolder, int accountNumber,String password)
     {
         this.balance = balance;
         this.accountHolder = accountHolder;
         this.accountNumber = accountNumber;
         this.password = password;
         this.loggedIn = false;
-        this.deposit = deposit;
-        this.withDrawal = withDrawal;
+
     }
     
     //mutator - allow you to change an instance variable (attribute)
@@ -64,11 +62,11 @@ public class BankAccount
     }
     
     //deposit
-    public String deposit() 
+    public void deposit(double deposit) 
     {
        if (this.loggedIn == true)
        {
-          return "Current Balance: " + balance + " How much would you like to deposit? " + deposit;
+          balance = balance + deposit;
        }
        else
        {
@@ -77,11 +75,11 @@ public class BankAccount
     }
     
     //withdrawal
-    public String withDrawal()
+    public void withDrawal(double withdrawal)
     {
        if (this.loggedIn == true)
        {
-          return "Current Balance: " + balance + " How much would you like to withdrawal? " + withDrawal;
+         withdrawal = balance - withdrawal;
        }
        else
        {
